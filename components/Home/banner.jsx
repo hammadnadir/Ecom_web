@@ -2,9 +2,10 @@ import React from "react";
 
 function Banner() {
   return (
-      <div  className="bg-[url('/image/landingpage.png')]">
+      <div className="">
+        <img className="w-full" src="/images/landingpage.png" alt="" />
          <div className="container">
-
+s
          </div>
       </div>
   );
