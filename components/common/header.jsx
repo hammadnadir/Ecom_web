@@ -1,20 +1,20 @@
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full fixed">
-      <div className="justify-between md:items-center md:flex container ">
+    <nav className="w-full fixed bg-[url('/images/header.png')] bg-cover bg-center bg-no-repeat">
+      <div className="justify-between md:items-center md:flex container" >
         <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block">
+          <div className="flex items-center justify-between py-3 md:py-5 md:mt-[20px] md:block">
             <a href="javascript:void(0)">
-              {/* <h2 className="text-2xl font-bold">LOGO</h2> */}
               <img src="/images/logo.png" className="w-[150px] md:w-[200px]" alt="logo" />
             </a>
             <div className="md:hidden">
               <button
-                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                className="p-2  rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
               >
                 {navbar ? (
@@ -56,17 +56,15 @@ export default function Header() {
               }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <li className="text-gray-600 hover:text-blue-600">
-                <a href="javascript:void(0)">Home</a>
+              <li className="font-bold md:text-[20px] 2xl:text-[24px] text-[#C02227]">
+                <Link href="#">Home</Link>
               </li>
-              <li className="text-gray-600 hover:text-blue-600">
-                <a href="javascript:void(0)">Blog</a>
+              
+              <li className="font-bold md:text-[20px] 2xl:text-[24px] text-[#C02227]">
+                <Link href="#">About </Link>
               </li>
-              <li className="text-gray-600 hover:text-blue-600">
-                <a href="javascript:void(0)">About US</a>
-              </li>
-              <li className="text-gray-600 hover:text-blue-600">
-                <a href="javascript:void(0)">Contact US</a>
+              <li className="font-bold md:text-[20px] 2xl:text-[24px] text-[#C02227]">
+                <Link href="#">Contact</Link>
               </li>
             </ul>
           </div>
