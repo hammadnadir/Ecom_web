@@ -5,7 +5,7 @@ function Banner() {
     <div className=" ">
       {/*---------------------------- Banner image---------------------- */}
       <div className="bg-[url('/images/landingpage.png')] bg-cover bg-center w-full bg-no-repeat">
-        <div className="w-[95%] m-auto ">
+        <div className="containers">
           {/*--------------------- product images------------------ */}
           <div className="flex md:flex-row justify-between flex-col">
             {/* ----------------vape image------------------ */}

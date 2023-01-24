@@ -5,7 +5,7 @@ export default function Header() {
 
   return (
     <nav className="w-full fixed">
-      <div className="justify-between md:items-center md:flex container ">
+      <div className="justify-between md:items-center md:flex containers justify-between ">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <a href="javascript:void(0)">

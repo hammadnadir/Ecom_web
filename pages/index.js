@@ -1,10 +1,13 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
+import { Anaheim, Inter, Roboto } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import { Footer, Header } from '../components/common'
 import { Banner, Products } from '../components/Home'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Anaheim({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export default function Home() {
   return (
@@ -15,7 +18,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/logo.png" />
       </Head>
-      <main>
+      <main className={roboto.className}>
         <Header />
         <Banner />
         <Products />
