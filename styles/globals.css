@@ -7,3 +7,20 @@
     width: 90%;
     margin: auto;
 }
+
+/* .vape_image {
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+} */
+
+/*------------------------------------- BANNER SECTION CSS-------------------------------- */
+
+/* ------vape image------- */
+.vape_image:hover{
+ cursor: pointer;
+}
+/* ------gummy image--------- */
+.gummy_image{
+    cursor: pointer;
+}
