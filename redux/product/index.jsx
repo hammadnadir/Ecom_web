@@ -1,27 +1,26 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { HYDRATE } from "next-redux-wrapper";
-import request, { baseURL } from "../request";
+import request from "../request";
 import { setLoading } from "../global";
 
 const initialState = {
-  products: {},
+  details: {},
   isLoading: false,
 };
 
-
-export const productDataRequest = createAsyncThunk(
-  "home/productDataRequest",
-  async (_, thunkAPI) => {
+export const sentslugRequest = createAsyncThunk(
+  "detail/sentslugRequest",
+  async (payload, thunkAPI) => {
     try {
       let response;
       thunkAPI.dispatch(setLoading(true));
-      response = await axios
-        .get(`${baseURL}americana-home`)
+      response = await request
+        .get(`product/${payload}`)
         .then((response) => response.data);
       // toast(<RequestMessage message="Message sent successfully!" />);
-      thunkAPI.dispatch(setLoading(false));
       return response;
+      thunkAPI.dispatch(setLoading(false));
     } catch (error) {
       console.log("Error", error);
       // toast(<RequestMessage icon="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" message="Message failed!" />);
@@ -30,27 +29,28 @@ export const productDataRequest = createAsyncThunk(
   }
 );
 
-export const homeDataSlice = createSlice({
-  name: "homeData",
+
+export const detailSlice = createSlice({
+  name: "detail",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(HYDRATE, (state, action) => {
       console.log("HYDRATE", action.payload);
-      state.products = action?.payload?.home?.products ? action.payload.home.products : state?.products;
+      state.details = action?.payload?.product?.details ? action.payload.product.details : state?.details;
     });
-    builder.addCase(productDataRequest.pending, (state) => {
+    builder.addCase(sentslugRequest.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(productDataRequest.fulfilled, (state, action) => {
-      state.products = action.payload;
+    builder.addCase(sentslugRequest.fulfilled, (state, action) => {
+      state.details = action.payload;
       state.isLoading = false;
     });
-    builder.addCase(productDataRequest.rejected, (state, action) => {
+    builder.addCase(sentslugRequest.rejected, (state, action) => {
       state.isLoading = false;
       console.log("Error:", { message: action.payload.message });
     });
   },
 });
 
-export default homeDataSlice.reducer;
+export default detailSlice.reducer;

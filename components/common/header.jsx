@@ -5,13 +5,13 @@ export default function Header() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full fixed bg-[url('/images/header.png')] bg-cover bg-center bg-no-repeat">
-      <div className="justify-between md:items-center md:flex container" >
+    <nav className="w-full fixed bg-[url('/images/header.png')]  bg-cover bg-no-repeat md:h-[150px] z-10">
+      <div className="justify-between md:items-center md:flex containers" >
         <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:mt-[20px] md:block">
-            <a href="javascript:void(0)">
+          <div className="flex items-center justify-between py-3 md:py-5 md:block">
+            <Link href="/">
               <img src="/images/logo.png" className="w-[150px] md:w-[200px]" alt="logo" />
-            </a>
+            </Link>
             <div className="md:hidden">
               <button
                 className="p-2  rounded-md outline-none focus:border-gray-400 focus:border"
